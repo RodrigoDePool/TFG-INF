@@ -12,6 +12,8 @@ IMG_FILE_4_21 = '../pdfs/serv2_1.pdf'
 IMG_FILE_4_22 = '../pdfs/serv2_2.pdf'
 IMG_FILE_3_5 = '../pdfs/incidencia_sencilla.pdf'
 IMG_FILE_3_2 = '../pdfs/Untitled.pdf'
+IMG_FILE_3_4 = '../pdfs/ejemplo_de_clasificador.pdf'
+
 ###
 # [IMG 2.2] Ejemplo de predicción con LSTM
 ###
@@ -141,3 +143,31 @@ plt.xlabel('Intervalo de tiempo')
 plt.ylabel('Bps enviados')
 plt.plot(Ys_o)
 plt.savefig(IMG_FILE_3_2)
+
+###
+# [IMG 3.4] Gráfica que ejemplifica el
+#           funcionamiento del clasificador
+###
+from math import sin
+plt.clf()
+f = lambda x: sin(x / 220) * 100 + 50
+# Ejemplo de prediccion
+xs = list(range(1, 500))
+pred = list(map(f, xs))
+plt.plot(xs, pred, color='green')
+# Ejemplo de boundaries
+fup = lambda x: f(x) + 25
+up_b = list(map(fup, xs))
+fdown = lambda x: f(x) - 25
+low_b = list(map(fdown, xs))
+plt.plot(xs, up_b, color='red', linestyle='--')
+plt.plot(xs, low_b, color='red', linestyle='--')
+# Ejemplo de característicca de red
+from random import random
+f = lambda x: 4 * random() + sin((x + 45 * random()) / 220) * 100 + 50
+ys = list(map(f, xs))
+plt.plot(xs, ys)
+plt.ylabel('Característica de red')
+plt.xlabel('Tiempo')
+plt.title('Funcionamiento del clasificador')
+plt.savefig(IMG_FILE_3_4)
