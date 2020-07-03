@@ -1,0 +1,16 @@
+[
+    {
+        "desde": "04:00:00 17-09-2019",
+        "hasta": "12:00:00 19-09-2019",
+        "columna": "win0",
+        "proporcion": 1,
+        "intensidad": 5
+    },
+    {
+        "desde": "07:00:00 23-09-2019",
+        "hasta": "09:00:00 23-09-2019",
+        "columna": "win0",
+        "proporcion": 0.8,
+        "intensidad": 2
+    }
+]

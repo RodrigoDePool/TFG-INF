@@ -1,0 +1,23 @@
+[
+    {
+        "desde": "04:00:00 02-08-2019",
+        "hasta": "12:00:00 10-08-2019",
+        "columna": "win0",
+        "proporcion": {p1},
+        "intensidad": {i1}
+    },
+    {
+        "desde": "00:00:00 02-09-2019",
+        "hasta": "03:00:00 20-09-2019",
+        "columna": "win0",
+        "proporcion": {p1},
+        "intensidad": {i1}
+    },
+    {
+        "desde": "03:00:00 23-08-2019",
+        "hasta": "23:00:00 24-08-2019",
+        "columna": "win0",
+        "proporcion": {p1},
+        "intensidad": {i1}
+    }
+]

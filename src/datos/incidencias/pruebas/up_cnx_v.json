@@ -1,0 +1,16 @@
+[
+    {
+        "desde": "07:00:00 23-09-2019",
+        "hasta": "12:00:00 23-09-2019",
+        "columna": "numberCnx",
+        "proporcion": 0.8,
+        "intensidad": 4
+    },
+    {
+        "desde": "12:00:00 08-09-2019",
+        "hasta": "16:00:00 10-09-2019",
+        "columna": "numberCnx",
+        "proporcion": 0.9,
+        "intensidad": 7
+    }
+]

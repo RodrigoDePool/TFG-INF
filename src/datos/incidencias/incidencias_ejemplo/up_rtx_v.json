@@ -1,0 +1,23 @@
+[
+    {
+        "desde": "04:00:00 12-09-2019",
+        "hasta": "12:00:00 12-09-2019",
+        "columna": "rtx",
+        "proporcion": 1,
+        "intensidad": 1.5
+    },
+    {
+        "desde": "08:00:00 04-09-2019",
+        "hasta": "12:00:00 04-09-2019",
+        "columna": "rtx",
+        "proporcion": 0.9,
+        "intensidad": 2
+    },
+    {
+        "desde": "03:00:00 21-09-2019",
+        "hasta": "23:00:00 21-09-2019",
+        "columna": "rtx",
+        "proporcion": 0.7,
+        "intensidad": 3
+    }
+]

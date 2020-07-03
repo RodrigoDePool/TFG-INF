@@ -10,7 +10,8 @@ IMG_FILE_4_11 = '../pdfs/serv1_1.pdf'
 IMG_FILE_4_12 = '../pdfs/serv1_2.pdf'
 IMG_FILE_4_21 = '../pdfs/serv2_1.pdf'
 IMG_FILE_4_22 = '../pdfs/serv2_2.pdf'
-
+IMG_FILE_3_5 = '../pdfs/incidencia_sencilla.pdf'
+IMG_FILE_3_2 = '../pdfs/Untitled.pdf'
 ###
 # [IMG 2.2] Ejemplo de predicción con LSTM
 ###
@@ -97,3 +98,46 @@ ip = '172.31.190.130'
 plot_metric(ip, 5, IMG_FILE_4_21)
 # Rtt per cnx
 plot_metric(ip, 10, IMG_FILE_4_22)
+
+###
+# [IMG 3.5] Gráfica de ejemplo de inducción
+#           de incidencia
+###
+Ys = df_ip.values[:600, 0]
+Ys_alterados = [
+    y * 0.95 * 2 + y * 0.05 if i > 150 and i < 300 else y
+    for i, y in enumerate(Ys)
+]
+plt.clf()
+plt.title('Incidencia inducida (95% de usuarios con factor de 2)')
+plt.xlabel('Intervalo de tiempo')
+plt.ylabel('PPS enviados')
+plt.plot(Ys_alterados, color='red')
+plt.plot(Ys, color='blue')
+plt.savefig(IMG_FILE_3_5)
+
+###
+# [IMG 3.2] Ejemplo exagerado de incidencia en
+#           en bits recibidos
+###
+ip = '192.168.34.52'
+df_ip = big_df[big_df['targetIP'] == ip].drop('Unnamed: 0', axis=1)
+Ys = df_ip.values[:600, 1]
+Ys_o = []
+for i, y in enumerate(Ys):
+    if i > 200:
+        if i < 220:
+            y = y * 1.2
+        elif i < 250:
+            y = y * 1.5
+        elif i < 300:
+            y = y * 2
+        elif i < 340:
+            y = y * 1.5
+    Ys_o.append(y)
+plt.clf()
+plt.title('Ejemplo de incidencia')
+plt.xlabel('Intervalo de tiempo')
+plt.ylabel('Bps enviados')
+plt.plot(Ys_o)
+plt.savefig(IMG_FILE_3_2)

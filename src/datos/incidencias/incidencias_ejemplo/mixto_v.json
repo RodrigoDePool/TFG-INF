@@ -1,0 +1,30 @@
+[
+    {
+        "desde": "00:00:00 21-09-2019",
+        "hasta": "03:00:00 21-09-2019",
+        "columna": "numberCnx",
+        "proporcion": 1,
+        "intensidad": 4
+    },
+    {
+        "desde": "23:00:00 04-09-2019",
+        "hasta": "03:00:00 05-09-2019",
+        "columna": "rttPerCnx",
+        "proporcion": 0.9,
+        "intensidad": 4
+    },
+    {
+        "desde": "03:00:00 20-09-2019",
+        "hasta": "06:00:00 20-09-2019",
+        "columna": "rtx",
+        "proporcion": 0.7,
+        "intensidad": 6
+    },
+    {
+        "desde": "00:00:00 18-09-2019",
+        "hasta": "03:00:00 19-09-2019",
+        "columna": "bpsPhyRcv",
+        "proporcion": 0.8,
+        "intensidad": 3
+    }
+]
