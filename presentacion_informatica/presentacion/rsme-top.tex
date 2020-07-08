@@ -1,0 +1,598 @@
+\documentclass{beamer}
+
+\usepackage{beamerthemesplit}
+%\usecolortheme{dolphin}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{url}
+%\usepackage[all]{xy}
+\usepackage{graphicx}
+%\usepackage{pdfsync}
+%\usepackage{mdframed}
+
+\usepackage{latexsym}
+\usepackage{amssymb}
+%\usepackage[cp850]{inputenc}
+\usepackage{epsfig}
+\usepackage{psfrag}
+\usepackage{amsfonts}
+%\usepackage{framed}
+
+%  \usetheme{Madrid}
+
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+
+\newtheorem*{mthm}{Main Theorem}
+\newtheorem{sat}{Theorem}[section]		
+\newtheorem{lem}[sat]{Lemma}
+\newtheorem{kor}[sat]{Corollary}			\newtheorem{prop}[sat]{Proposition}
+\newtheorem{bei}{Example}				\newtheorem{defi}{Definition}
+\newtheorem*{defi*}{Definition}			\newtheorem*{bei*}{Example}
+\newtheorem*{sat*}{Theorem}				\newtheorem*{kor*}{Corollary}
+\newtheorem*{rmk*}{Remark}				\newtheorem{quest}{Question}	
+\newtheorem{assumption}{Assumption}[section]	
+
+
+\setbeamercolor{lieu}{fg=blue!50!red}
+%\definecolor{violet}{cmyk}{0.2,1,0,0.3}
+\setbeamercolor{ora}{fg=red!10!orange!90!black}
+\setbeamercolor{hyp}{fg=green!50!black} 
+%\definecolor{vert}{rgb}{0.2,0.7,0.1}
+\setbeamercolor{bleu}{fg=blue} 
+\newcommand{\bleu}{\usebeamercolor[fg]{bleu}}
+\newcommand{\lieu}{\usebeamercolor[fg]{lieu}}
+\newcommand{\hyp}{\usebeamercolor[fg]{hyp}}
+\newcommand{\ora}{\usebeamercolor[fg]{ora}}
+\newcommand{\hypitem}{\setbeamercolor{item}{use={hyp},fg=hyp.fg}}	
+\setbeamercolor{red}{fg=red} 
+\newcommand{\red}{\usebeamercolor[fg]{red}}
+
+
+
+\newenvironment{ftheo}
+  {\begin{mdframed}\begin{theorem}}
+  {\end{theorem}\end{mdframed}}
+
+
+% number equations by section:
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\let\ssection=\section
+\renewcommand{\section}{\setcounter{equation}{0}\ssection}
+
+\newtheorem*{namedtheorem}{\theoremname}
+\newcommand{\theoremname}{testing}
+\newenvironment{named}[1]{\renewcommand{\theoremname}{#1}\begin{namedtheorem}}{\end{namedtheorem}}
+
+\theoremstyle{remark}
+\newtheorem*{bem}{Remark}
+
+%\setlength{\parindent}{0em}
+
+%\newcommand{\defin}{\ensuremath{\overset{ \text{\tiny def} }{=} } }
+
+\newcommand{\BC}{\mathbb C}			\newcommand{\BH}{\mathbb H}
+\newcommand{\BR}{\mathbb R}			\newcommand{\BD}{\mathbb D}
+\newcommand{\BN}{\mathbb N}			\newcommand{\BQ}{\mathbb Q}
+\newcommand{\BS}{\mathbb S}			\newcommand{\BZ}{\mathbb Z}
+\newcommand{\BF}{\mathbb F}				\newcommand{\BT}{\mathbb T}
+\newcommand{\BM}{\mathbb M}			\newcommand{\BG}{\mathbb G}	
+\newcommand{\BP}{\mathbb P}			
+
+%\newcommand{\RP}{\mathrm P}
+
+\newcommand{\CA}{\mathcal A}		\newcommand{\CB}{\mathcal B}
+\newcommand{\CC}{\mathfrak C}		\newcommand{\calD}{\mathcal D}
+\newcommand{\CE}{\mathcal E}		\newcommand{\CF}{\mathcal F}
+\newcommand{\CG}{\mathcal G}		\newcommand{\CH}{\mathcal H}
+\newcommand{\CI}{\mathcal I}			\newcommand{\CJ}{\mathcal J}
+\newcommand{\CK}{\mathcal K}		\newcommand{\CL}{\mathcal L}
+\newcommand{\CM}{\mathcal M}		\newcommand{\CN}{\mathcal N}
+\newcommand{\CO}{\mathcal O}		\newcommand{\CP}{\mathcal P}
+\newcommand{\CQ}{\mathcal Q}		\newcommand{\CR}{\mathcal R}
+\newcommand{\CS}{\mathcal S}		\newcommand{\CT}{\mathcal T}
+\newcommand{\CU}{\mathcal U}		\newcommand{\CV}{\mathcal V}
+\newcommand{\CW}{\mathcal W}		\newcommand{\CX}{\mathcal X}
+\newcommand{\CY}{\mathcal Y}		\newcommand{\CZ}{\mathcal Z}
+
+\newcommand{\FO}{\mathfrak o}
+\newcommand{\FP}{\mathfrak p}
+\newcommand{\FG}{\mathfrak g}
+\newcommand{\FK}{\mathfrak k}
+
+
+\newcommand{\actson}{\curvearrowright}
+\newcommand{\D}{\partial}
+\newcommand{\DD}{\nabla}
+\newcommand{\bs}{\backslash}
+
+
+\DeclareMathOperator{\Out}{Out}		%	Aeussere Automorphismen einer Gruppe
+\DeclareMathOperator{\Diff}{Diff}	%	Diffeomorphimen einer Mf
+\DeclareMathOperator{\SL}{SL}		%	Spezielle lineare Gruppe
+\DeclareMathOperator{\PSL}{PSL}		%	Spezielle lineare Gruppe
+\DeclareMathOperator{\GL}{GL}		%	Allgemeine lineare Gruppe
+\DeclareMathOperator{\Id}{Id}		%	Identit\"at
+\DeclareMathOperator{\Isom}{Isom}	%	Isometrien einer Mf
+\DeclareMathOperator{\Hom}{Hom}		%	Homomorphismen
+\DeclareMathOperator{\vol}{vol}		%	Volumen
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\PMod}{PMod}
+
+\DeclareMathOperator{\inj}{inj}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Axis}{Axis}
+\DeclareMathOperator{\maxrad}{maxrad}
+\DeclareMathOperator{\height}{height}
+\DeclareMathOperator{\rel}{rel}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\length}{length}
+\DeclareMathOperator{\diver}{div}
+\newcommand{\comment}[1]{}
+\DeclareMathOperator{\waist}{waist}
+\newcommand{\x}{{\bf x}}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\OO}{O}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Comm}{Comm}
+\DeclareMathOperator{\Domain}{Domain}
+\DeclareMathOperator{\Aut}{Aut}
+%\DeclareMathOperator{\Stab}{Stab}
+%\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\inte}{int}
+%\DeclareMathOperator{\red}{{red}}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Homeo}{Homeo}
+
+\DeclareMathOperator{\vcd}{{vcd}}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\cdim}{cd}
+\DeclareMathOperator{\sing}{sing}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\UU}{U}
+\DeclareMathOperator{\gdim}{\underline{gd}}
+\DeclareMathOperator{\cdm}{\underline{cd}}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\Teich}{Teich}
+
+\def\XX{\mathfrak X}
+\def\BB{\mathfrak B}
+
+
+
+\mode<presentation>
+
+\title[Universal mapping class groups]{Universal mapping class groups}
+\author{Javier Aramayona}
+\institute[UAM/ICMAT] {
+ UAM/ICMAT\\
+%\vspace{10pt}
+\begin{center}
+\footnotesize{{\bf {Joint work with Louis Funar (Grenoble)}}}
+\end{center}}
+\date{}
+
+
+
+
+
+
+\begin{document}
+
+\maketitle
+
+
+%-------------------------------------------------------------------------------
+
+
+\frame{\frametitle{Mapping class group}
+
+{ $S$: orientable surface, of finite or infinite topological type.
+\bigskip
+\begin{itemize}
+\item $\Mod(S)$: the group of isotopy classes of homeos $S\to S$. 
+
+\medskip
+\item $\PMod(S)$: the {\em pure} subgroup (elements pointwise fix boundary and punctures).
+\end{itemize}
+ 
+}
+
+\medskip
+
+{\begin{example} $\Mod(\rm{torus}) = \PMod(\rm{torus})=  \GL(2,\mathbb Z)$.\end{example}
+}
+
+}
+
+%---------------------------------------
+
+\frame{\frametitle{Finite presentation}
+
+{ 
+
+\begin{sat}[Dehn-Lickorish, Hatcher-Thurston, etc]
+If $S$ has finite type, then $\Mod(S)$ is finitely presented. In fact, $\PMod(S)$ is generated by a finite collection of Dehn twists. 
+\end{sat}
+}
+
+
+\medskip
+
+
+\begin{proof}
+Construct a nice action of $\Mod(S)$ on a simply-connected complex (built from simple closed curves on $S$). 
+\end{proof}
+
+}
+
+%---------------------------------------
+
+\frame{\frametitle{Universal mapping class groups}
+
+{Groups that contain {\em every} mapping class group (of genus $g$). 
+
+\bigskip
+
+\noindent{\bf Motivation}
+
+\begin{itemize}
+\item Homological stability
+\item Dynamics
+\end{itemize}
+
+
+
+}
+
+}
+
+%---------------------------------------
+
+\frame{\frametitle{Homological stability I}
+
+{
+ $S_{g,n}$: surface of genus $g$ with $n$ boundary components. Observe that $S_{g,n} \hookrightarrow S_{g,n+1}$ for all $n$ (glue a pair of pants). Can form \[\lim_{\to_n} \PMod(S_{g,n})\]
+
+\begin{rmk*}
+\begin{itemize}
+\item $\lim_{\to_n} \PMod(S_{g,n})$ contains $\PMod(S_{g,n})$ for all $n\ge 1$. 
+\item It is infinitely generated. 
+\end{itemize}
+\end{rmk*}
+
+}}
+
+
+%---------------------------------------
+
+
+
+\frame{\frametitle{Homological stability II}
+
+{
+
+\bigskip
+\begin{sat}[Harer's stability theorem, 1985]
+If $g>>i$, then \[H_i(\PMod(S_{g,n}),\BZ) \cong H_i(\lim_{\to_k} \PMod(S_{g,k}),\BZ)\]
+\end{sat}
+
+(i.e. $H_i$ does not depend on number of boundary components)
+
+}
+
+}
+
+%---------------------------------------
+
+\frame{\frametitle{Big mapping class groups}
+
+{Notation: $\Sigma_g$ is  $S_{g,0}$ minus a Cantor set. Consider $\Mod(\Sigma_g)$. 
+
+%\begin{figure}[htb]
+%\begin{center}
+%\includegraphics[width=3in,height=2in]{surfinf0.pdf} \caption{A %compact piece of $\Sigma_0$.} \label{fig:genus0}
+%\end{center}
+%\end{figure}
+
+}}
+
+%---------------------------------------
+
+\frame{\frametitle{Big mapping class groups II}
+
+{
+\begin{rmk*}
+\begin{itemize}
+\item Appear naturally in dynamics (D. Calegari)
+\medskip
+\item $\Mod(\Sigma_g)$ contains $\PMod(S_{g,n})$ for all $n\ge 1$.
+\medskip
+\item $\Mod(\Sigma_g)$ is uncountable! 
+\medskip
+\item  ${\lim_{\to_k}} \PMod(S_{g,k}) = \PMod_c(\Sigma_g)$
+\end{itemize}
+\end{rmk*}
+
+
+
+
+
+
+}
+
+}
+
+%---------------------------------------
+
+\frame{\frametitle{Asymptotically rigid homeos}
+
+{Defined in terms of a {\em rigid structure} on $\Sigma_g$: a pants decomposition $P$, plus some other things. (Point: if $f$ fixes rigid structure then $f= id$.)
+
+\bigskip
+
+\begin{definition}
+A homeomorphism $f:\Sigma_g \to \Sigma_g$ is {\em asymptotically rigid} if there exists a $P$-suited compact subsurface $Z$ with $f(Z)$ $P$-suited, such that $f$ preserves the rigid structure outside these. 
+\end{definition}
+
+
+}
+
+}
+
+
+%---------------------------------------
+
+\frame{\frametitle{Asymptotic mapping class group}
+
+{
+
+
+\begin{definition}
+$B_g$: the group of isotopy classes of asymptotically rigid homeomorphisms.
+\end{definition}
+
+\medskip
+
+\begin{sat}[A-Funar]
+One has \[1 \to P\Mod_c(\Sigma_g) \to B_g \to V \to 1\] where $V$ is Thompson's group $V$. 
+\end{sat}
+
+\medskip
+
+($V$ is a simple, infinite, finitely-presented group with lots of other cool properties. It's a subgroup of $\Homeo(\rm{Cantor})$)
+
+
+}
+
+}
+
+%---------------------------------------
+
+\frame{\frametitle{Finite presentation}
+
+
+{
+
+\begin{sat}[A-Funar]
+For all $g$, the group $B_g$ is finitely presented. 
+\end{sat}
+
+(Known by Funar-Kapoudjian (2004) for $g=0$.) 
+
+\medskip
+
+
+\begin{proof}
+Construct a nice action on a simply-connected complex (built from simple closed curves on $\Sigma_g$). 
+\end{proof}
+
+
+}
+
+}
+
+%---------------------------------------
+
+\frame{\frametitle{Homology}
+
+
+{
+
+\begin{sat}[A-Funar]
+For $g>>i$, $H_i(B_g, \BZ)$ is the stable homology group of the m.c.g of genus $g$. (Corollary: $B_g$ is perfect for $g\ge 3$.)
+\end{sat}
+
+\medskip
+
+\begin{proof}
+Promote Harer's stability  to $B_g$ using the short exact sequence above. 
+\end{proof}
+
+
+
+
+}
+
+}
+
+%---------------------------------------
+
+\frame{\frametitle{Injections}
+
+
+{
+
+\begin{sat}[A-Funar]
+If $h>g$ then no (weakly) injective homomorphisms $B_h \to B_g$. (Corollary: Class. of the $B_g$'s up to isomorphism.)
+\end{sat}
+
+\medskip
+
+\begin{proof}
+Use properties of $V$, plus the analogous statement for $\PMod(S_{g,n})$ (Castel, A-Souto). 
+\end{proof}
+
+
+}
+
+}
+
+%---------------------------------------
+
+\frame{\frametitle{Algebraic rigidity}
+
+
+{
+
+\begin{sat}[Ivanov]
+If $S$ has finite-type then \[\Aut(\Mod(S)) = \Aut(\PMod(S))= \Mod(S).\]
+\end{sat}
+
+\medskip
+
+\begin{sat}[A-Funar]
+For every $g$, $\Aut(B_g) = N_{\Mod(\Sigma_g)}(B_g)$. 
+\end{sat}
+
+\begin{proof}
+Prove that Dehn twists go to Dehn twists. 
+\end{proof}
+
+%\bigskip
+%
+%(Analogs of similar theorems for finite-type MCGs.)
+
+
+}
+
+}
+
+
+%---------------------------------------
+
+\frame{\frametitle{Homomorphisms from lattices}
+
+
+{
+
+\begin{sat}[Farb-Masur]
+Let $\Gamma$ be an higher-rank lattice, $S$ a surface of finite type.  Then every homomorphism $\Gamma \to \Mod(S)$ has finite image. 
+\end{sat}
+
+\medskip
+
+\begin{sat}[A-Funar]
+Let $\Gamma$ be an higher-rank lattice. Then every homomorphism $\Gamma \to B_g$ has finite image. 
+\end{sat}
+
+\begin{proof}
+Use properties of $V$ plus the analogous statement for $\PMod(S_{g,n})$ (Farb-Masur...) 
+\end{proof}
+
+
+
+
+}
+
+}
+
+%---------------------------------------
+
+\frame{\frametitle{Kazhdan's Property (T)}
+
+{
+\begin{quest}
+Do finite-type mapping class groups have Property (T)? 
+\end{quest}
+
+(The expected answer is ``no" (Andersen).) 
+
+\bigskip
+
+\begin{sat}[A-Funar]
+$B_g$ does not have Property (T).
+\end{sat}
+
+\begin{proof}
+$B_g$ surjects onto $V$, which is infinite and has the {\em Haagerup property}. 
+\end{proof}
+
+
+
+}
+
+}
+
+%---------------------------------------
+
+\frame{\frametitle{Linearity}
+
+
+{ 
+
+\begin{quest}
+Are mapping class groups linear?
+\end{quest}
+
+\medskip
+
+Known only for the closed surface of genus 2 (Bigelow-Budney). 
+
+\bigskip
+
+\begin{sat}[A-Funar]
+$B_g$ is not linear. 
+\end{sat}
+
+\begin{proof}
+$B_g$ contains a copy of Thompson's group $F$, which is not linear. 
+\end{proof}
+
+
+
+}
+
+}
+
+%---------------------------------------
+
+\frame{\frametitle{A related group}
+
+
+{ $H_g$ (contains $B_g$) consists of asymptotically rigid homeos, in a weaker sense. 
+
+\bigskip
+
+
+
+\begin{sat}[A-Funar]
+$H_g$ is finitely presented, and is dense in $\Mod(\Sigma_g)$. 
+\end{sat}
+
+\begin{proof}
+Given a mapping class, construct {\em by hand} a sequence in $B_g$ that converges to it. 
+\end{proof}
+
+
+
+}
+
+}
+
+
+
+
+\end{document}
+ 
