@@ -1,0 +1,11 @@
+# Presentación
+
+Buenas, mi TFG se titula "Ayuda al diagnóstico de incidencias en grandes redes de ordenadores" y esencialmente trata de la automatización de parte de la gestión de red en grandes centros de datos.
+
+El trabajo nace de la necesidad de simplificar la gestión de los servidores de una gran empresa de hidrocarburos. La idea es que automatizando parte de la gestión de red se puede minimizar significativamente los costes de monitorización del centro en cuestión. Motivado aún más porque las redes son cada vez más complejas debido a la migración de sistemas a la nube. 
+
+Durante el trabajo se asume una arquitectura básica que es la que se observa en pantalla. La clave está en contar con una sonda que registra la información de red de cada servidor. En concreto, durante el TFG se trabajó con un *dataset*  que recogía un vector de 14 métricas  cada 5 minutos por servidor. Estas métricas describen a *grosso modo* el comportamiento en red del servidor. Entre las métricas se recoge el RTT, el número de conexiones, los bps medios enviados/recibidos, los pps. 
+
+Estas son las métricas que la gestión de red se encarga de monitorizar y que dan amplia información acerca del estado de los servdores. Veamos un par de ejemplos: en la primera imagen se observa el número de conexiones, un repunte repentino del número de conexiones puede implicar un posible ataque de denegación de servicio; de igual modo, en la segunda gráfica vemos una súbita caída del números de bps enviados, esto podría indicar una malfuncionamiento del servidor bien a nivel software o hardawre. Este par de ejemplos ilustran cómo analizando las series temporales de métricas de red, podemos identificar  posibles incidencias en los servidores. 
+
+En el trabajo se buscó implementar un modelo (y evaluarlo) que fuese capaz de detectar este tipo de incidencias y notificarlas. De modo que se libera al gestor de la tarea de tener que inspeccionar las gráficas de red y se ocupe únicamente de investigar y subsanar las incidencias que el sistema indique. Esto evidentemente permite que un mismo gestor maneje un mayor número de servidores. 
