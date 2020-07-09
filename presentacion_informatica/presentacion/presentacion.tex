@@ -246,23 +246,11 @@ Resultados para el paquete de incidencias mixto:
 
 % Diapo 11
 \begin{frame}
-\frametitle{Experimento 2}
+\frametitle{Otros experimentos}
 
-\begin{block}{Procedimiento}
-Puesta a prueba en 15 días de datos sin incidencias para evaluar el número de alarmas en circunstancias reales. 
-
-Además, realizamos inspección manual de algunas alarmas para estimar la precisión aparente (que no la sensibilidad).
-\end{block}
-\end{frame}
- 
-
-% Diapo 12
-\begin{frame}
-\frametitle{Resultados del experimento 2}
-Se obtuvo de media por día por servidor:
 \begin{itemize}
-\item 0.7 alarmas para LSTM.
-\item 0.75 alarmas para VAR.
+\item Simulación con datos sin incidencias: Precisión aparente alta y alrededor de 0.7 incidencias por servidor por día.
+\item Tiempos de ejecución del orden de 5 segundos para 75 mil segmentos de red.
 \end{itemize}
 
 \begin{block}{Inspección manual de incidencias}
@@ -270,8 +258,8 @@ Se obtuvo de media por día por servidor:
 \includegraphics[scale=0.3]{imagenes/manual.pdf} 
 \end{figure}
 \end{block}
-Recordemos la prioridad de incidencias.
 \end{frame}
+ 
 
 
 % Diapo 13
